@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HsS.Data\HsS.Data.csproj" />
+    <ProjectReference Include="..\HsS.Ifs\HsS.Ifs.csproj" />
+    <ProjectReference Include="..\HsS.Models\HsS.Models.csproj" />
+  </ItemGroup>
+
+</Project>

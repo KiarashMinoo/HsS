@@ -1,0 +1,52 @@
+﻿@model SaleShareViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    <div class="row">
+        <div class="col-md-4">
+            <section>
+                <form id="account" method="post">
+                    <h4>Use a local account to log in.</h4>
+                    <hr />
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="ShareId"></label>
+                        <select asp-for="ShareId" class="form-control">
+                            @foreach(var share in ViewData["Shares"] as ICollection<HsS.Models.Entities.Share>)
+                            {
+                                <option value="@share.Id">@share.Name</option>
+                            }
+                        </select>
+                        @*<input asp-for="ShareId" class="form-control" />*@
+                        <span asp-validation-for="ShareId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UnitAmount"></label>
+                        <input asp-for="UnitAmount" class="form-control" />
+                        <span asp-validation-for="UnitAmount" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Quantity"></label>
+                        <input asp-for="Quantity" class="form-control" />
+                        <span asp-validation-for="Quantity" class="text-danger"></span>
+                    </div>                    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Order</button>
+                    </div>                    
+                </form>
+            </section>
+        </div>        
+    </div>
+
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+</div>
